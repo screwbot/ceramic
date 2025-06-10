@@ -1,0 +1,37 @@
+<script>
+    var urlObj = new window.URL(window.location.href);
+    var url = "/load.html";
+
+    var educationalSites = [
+        "https://www.khanacademy.org",
+        "https://www.coursera.org",
+        "https://www.edx.org",
+        "https://google.com",
+        "https://www.codecademy.com",
+        "https://www.udacity.com",
+        "https://www.nationalgeographic.org/education/",
+        "https://www.sciencedaily.com",
+        "https://www.open.edu/openlearn/"
+    ];
+    var randomSite = educationalSites[Math.floor(Math.random() * educationalSites.length)];
+
+    if (url) {
+        var win = window.open(); 
+
+        if (win) {
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+
+            location.replace(randomSite);
+        } else {
+            alert("Popup was blocked. Please allow popups to use this site.");
+        }
+    }
+</script>
